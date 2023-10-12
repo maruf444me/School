@@ -50,23 +50,23 @@ def show_student(request):
 
 
 # Update Student Data
-def update_data(request,id):
-    student = Student.objects.get(pk=id)
+# def update_data(request,id):
+#     student = Student.objects.get(pk=id)
     
-    if request.method == 'POST':
-        data = request.POST
-        new_name = data.get('name')
-        new_roll = data.get('roll')
-        new_city = data.get('city')
-        new_cgpa = data.get('cgpa')
+#     if request.method == 'POST':
+#         data = request.POST
+#         new_name = data.get('name')
+#         new_roll = data.get('roll')
+#         new_city = data.get('city')
+#         new_cgpa = data.get('cgpa')
 
-        student.name = new_name
-        student.roll = new_roll
-        student.city = new_city
-        student.cgpa = new_cgpa
-        student.save()
-        return redirect('/teacher/show_student')
-    return render(request, 'teacher/update_student.html', {'stu_info': student})
+#         student.name = new_name
+#         student.roll = new_roll
+#         student.city = new_city
+#         student.cgpa = new_cgpa
+#         student.save()
+#         return redirect('/teacher/show_student')
+#     return render(request, 'teacher/update_student.html', {'stu_info': student})
 
 
 
