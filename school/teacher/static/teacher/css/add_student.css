@@ -1,0 +1,14 @@
+body {
+	background: linear-gradient(to left, #a84971, #39708a, #278071);
+    color: rgba(240, 240, 240, 0.85555);
+}
+
+.card {
+    background: linear-gradient(to left, #7a2e4e, #39708a, #278071);
+    color: rgba(240, 240, 240, 0.85555);
+}
+
+.container{
+    margin-top: 90px;
+    margin-bottom: 15px;
+}

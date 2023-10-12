@@ -1,0 +1,66 @@
+{% extends 'teacher/base.html' %} 
+{% load static %}
+{% block css %}<link rel="stylesheet" href="{% static 'teacher/css/add_student.css' %}">{% endblock %}
+{% block title %} Home Page {% endblock %} 
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <div class="card text-white">
+                <h3 class="text-center p">Add Student</h3>
+                <hr class="border border-danger">
+
+                <!-- Showing Error Messages -->
+                <div class="row justify-content-center">
+                    <div class="col-sm-5 text-center">
+                        {% if error_message %}
+                            <div class="alert alert-warning alert-dismissible fade show " role="alert">
+                                {{ error_message }}
+                                <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Student Adding Form -->
+                <div class="card-body shadow card_body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label"><span class="fw-bold">Student Name</span></label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{stu_info.name}}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="roll" class="form-label"><span class="fw-bold">Student Roll</span></label>
+                            <input type="number" class="form-control" id="roll" name="roll" value="{{stu_info.roll}}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="city" class="form-label"><span class="fw-bold">Student City</span></label>
+                            <input type="text" class="form-control" id="city" name="city" value="{{stu_info.city}}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cgpa" class="form-label"><span class="fw-bold">Student CGPA</span></label>
+                            <input type="text" class="form-control" id="cgpa" name="cgpa" value="{{stu_info.cgpa}}" min="0" max="5">
+                        </div>
+
+                        <div class="container mt-5">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <input class="btn btn-primary" type="submit" value="Update">
+                                </div>
+                                <div class="col-sm-4">
+                                    <a href="{% url 'show_student' %}"  class="btn btn-success ">Cancle</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
